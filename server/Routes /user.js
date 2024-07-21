@@ -20,7 +20,7 @@ router.post('/register' , async (req ,res) => {
     
         if (!phoneSnapshot.empty) {
           return res.status(400).json({
-            msg: 'Already registered with this phone number'
+            msg: 'lready registered with this phone number'
           });
         }
 

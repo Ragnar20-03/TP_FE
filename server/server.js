@@ -5,8 +5,12 @@ app.use(bodyParser.json () ) ;
 
 
 const user = require ('./Routes /user') ; 
+const ngo = require ('./Routes /ngo') ; 
+const volunteer = require ('./Routes /volunteer') ; 
 
 app.use( '/user' , user) ; 
+app.use( '/ngo' , ngo) ; 
+app.use( '/user' , volunteer) ; 
 
 app.listen( 5100 , () => { 
     console.log("Server started on port number 5100 ");
