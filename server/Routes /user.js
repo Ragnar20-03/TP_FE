@@ -5,9 +5,8 @@ const db = require ( '../Db/FirebaseConn')
 
 //Register Route
 router.post('/register' , async (req ,res) => {
-
+    try { 
         const { fname, lname, email , password , ph  , role  } = req.body;
-
         const usersRef = db.collection('users');
         const emailSnapshot = await usersRef.where('email', '==', email).get();
         const phoneSnapshot = await usersRef.where('ph', '==', ph).get();
@@ -35,7 +34,7 @@ router.post('/register' , async (req ,res) => {
 
         }).then ( ( res2) => { 
             res.status(200).json({
-                msg : " User Registered Succesfully ! "
+                msg : " Volunteer Registered Succesfully ! "
             })
 
         }).catch ((err )=> {
@@ -44,6 +43,11 @@ router.post('/register' , async (req ,res) => {
             })
 
         })
+    }
+        catch (error) {
+            return res.status(404).json({msg : "Internal Server Error"})
+          }
+        
 }) 
 // Login Route 
 router.post('/login' , async (req ,res) => {
