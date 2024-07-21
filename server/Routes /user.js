@@ -1,41 +1,82 @@
 const express = require ( 'express') ; 
 const router  = express.Router () ; 
 
-router.get('/' , (req ,res) => {
-     res.json({
-        msg : " Main route of user "
-     })
+const db = require ( '../Db/FirebaseConn')
+
+//Register Route
+router.post('/register' , async (req ,res) => {
+
+        const { fname, lname, email , password , ph  , role  } = req.body;
+
+        const usersRef = db.collection('users');
+        const emailSnapshot = await usersRef.where('email', '==', email).get();
+        const phoneSnapshot = await usersRef.where('ph', '==', ph).get();
+    
+        if (!emailSnapshot.empty) {
+          return res.status(400).json({
+            msg: 'Already registered with this email'
+          });
+        }
+    
+        if (!phoneSnapshot.empty) {
+          return res.status(400).json({
+            msg: 'Already registered with this phone number'
+          });
+        }
+
+         db.collection('users').add({
+          fname,
+          lname,
+          email , 
+          password , 
+          ph , 
+          role , 
+          isVarified: true 
+
+        }).then ( ( res2) => { 
+            res.status(200).json({
+                msg : " User Registered Succesfully ! "
+            })
+
+        }).catch ((err )=> {
+            res.status(501).json({
+                msg : "Something Went Wrong " 
+            })
+
+        })
 }) 
+// Login Route 
+router.post('/login' , async (req ,res) => {
 
-router.get ( '/userInfo' , async (rqe ,res ) =>  {
-        // Firebase Data Fetch 
+    const { email , password } = req.body;
 
-        // Send it to Frontend
-}) 
-
-
-router.post  ('/register' , async (req ,res ) => {
- 
-    const body = req.body
-     const{ fname , lname , email , profLink , pass , ph , isVarified  , role , ngoId} =  body ;
-    console.log(" fname is : " ,body);
-    if ( !fname || !lname || !email ||  !profLink || !pass || !ph || !role  || !ngoId )
-    {
-        return res.status(501).json( { msg : "Information Not valid !"});
+   
+  try {
+    const usersRef = db.collection('users');
+    const snapshot = await usersRef.where('email', '==', email).get();
+    if (snapshot.empty) {
+        return res.status(404).json({msg : 'User not found'});
     }
-    return res.status(200).json({ msg : "Register Success !"});
+
+    let userFound = false;
+    snapshot.forEach(doc => {
+      if (doc.data().password === password) {
+        userFound = true;
+      }
+    });
+
+    if (userFound) {
+        return res.status(404).json({msg : 'Login Succesfull '});
+
+    } else {
+        return res.status(404).json({msg : "Password Mismatch !"});
+      
+    }
+  } catch (error) {
+    return res.status(404).json({msg : "Internal Server Error"})
+  }
 
 }) 
 
-router.post  ('/login' , async (req ,res ) => {
- 
-    const {username  , pass } = req.body ;  
-    //   Firebase Authentication 
-    //  Send Response 
-}) 
-
-router.post ( '/plantTree' , async (req ,res ) => {
-        // const { }
-})
 
 module.exports = router ; 
