@@ -1,20 +1,30 @@
-const express = require( 'express') ; 
-const  app = express ()  ; 
-const bodyParser = require ('body-parser') ; 
-app.use(bodyParser.json () ) ; 
+import express from "express";
+const app = express();
+import bodyParser from "body-parser";
+app.use(bodyParser.json());
+import dotenv from "dotenv";
+dotenv.config();
+import { testRouter } from "./routes/testRoute.js";
+import registerRouter from "./routes/authRoute.js";
+import isAuthenticated from "./middleware/isAuth.js";
 
+// const user = require("./Routes /user");
+// const ngo = require("./Routes /ngo");
+// const volunteer = require("./Routes /volunteer");
 
-const user = require ('./Routes /user') ; 
-const ngo = require ('./Routes /ngo') ; 
-const volunteer = require ('./Routes /volunteer') ; 
+// app.use("/user", user);
+// app.use("/ngo", ngo);
+// app.use("/volunteer", volunteer);
 
-app.use( '/user' , user) ; 
-app.use( '/ngo' , ngo) ; 
-app.use( '/volunteer' , volunteer) ; 
+app.use("/auth", registerRouter);
 
-app.listen( 5100 , () => { 
-    console.log("Server started on port number 5100 ");
-})
+//!!!TESTING!!!
+app.use("/test", testRouter);
 
-
-
+app.use(isAuthenticated);
+app.get("/", (req, res) => {
+  res.json({ message: "Hello World" });
+});
+app.listen(5100, () => {
+  console.log(`Server started at http://localhost:5100`);
+});
