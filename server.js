@@ -21,9 +21,7 @@ app.get("/", (req, res) => {
 // app.use("/ngo", ngo);
 // app.use("/volunteer", volunteer);
 
-app.use("/auth", registerRouter);
-
-
+app.use("/auth", registerRouter); // register , update ...  
 
 //!!!TESTING!!!
 app.use("/test", testRouter);
@@ -35,3 +33,14 @@ app.listen(5100, () => {
 
 // app.use(isAuthenticated);
 log("hii")
+
+
+// Pending 
+
+  // Route 
+      //  User info GET 
+      // PLantation stats 
+      // News ?? GET 
+
+  // Volunteer 
+      

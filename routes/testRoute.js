@@ -15,7 +15,7 @@ import { getChatbotResponse } from "../controller/geminiTestController.js";
 
 const testRouter = express.Router();
 
-testRouter.get("/testAuth", testAuthController);
+testRouter.get("/testAuth", testAuthController); 
 
 testRouter.post("/addDoc", addDocController);
 testRouter.get("/getDocs", getDocsController); // Admin Route 
