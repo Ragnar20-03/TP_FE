@@ -8,6 +8,9 @@ import { testRouter } from "./routes/testRoute.js";
 import registerRouter from "./routes/authRoute.js";
 import isAuthenticated from "./middleware/isAuth.js";
 
+app.get("/", (req, res) => {
+  res.json({ message: "Hello World" });
+});
 // const user = require("./Routes /user");
 // const ngo = require("./Routes /ngo");
 // const volunteer = require("./Routes /volunteer");
@@ -18,13 +21,13 @@ import isAuthenticated from "./middleware/isAuth.js";
 
 app.use("/auth", registerRouter);
 
+
+
 //!!!TESTING!!!
 app.use("/test", testRouter);
 
 app.use(isAuthenticated);
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
-});
+
 app.listen(5100, () => {
   console.log(`Server started at http://localhost:5100`);
 });
