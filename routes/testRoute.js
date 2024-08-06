@@ -18,7 +18,7 @@ const testRouter = express.Router();
 testRouter.get("/testAuth", testAuthController);
 
 testRouter.post("/addDoc", addDocController);
-testRouter.get("/getDocs", getDocsController);
+testRouter.get("/getDocs", getDocsController); // Admin Route 
 testRouter.put("/updateDoc", updateDocController);
 testRouter.patch("/patchDoc", patchDocController);
 testRouter.delete("/deleteDoc", deleteDocController);

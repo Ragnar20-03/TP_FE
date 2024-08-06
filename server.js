@@ -7,9 +7,10 @@ dotenv.config();
 import { testRouter } from "./routes/testRoute.js";
 import registerRouter from "./routes/authRoute.js";
 import isAuthenticated from "./middleware/isAuth.js";
+import { log } from "console";
 
 app.get("/", (req, res) => {
-  res.json({ message: "Hello World" });
+  res.json({ message: "Plant the Tree! " });
 });
 // const user = require("./Routes /user");
 // const ngo = require("./Routes /ngo");
@@ -26,8 +27,10 @@ app.use("/auth", registerRouter);
 //!!!TESTING!!!
 app.use("/test", testRouter);
 
-app.use(isAuthenticated);
 
 app.listen(5100, () => {
   console.log(`Server started at http://localhost:5100`);
 });
+
+app.use(isAuthenticated);
+log("hii")
