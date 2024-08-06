@@ -1,13 +1,14 @@
 import express from "express";
 const app = express();
 import bodyParser from "body-parser";
-app.use(bodyParser.json());
 import dotenv from "dotenv";
 dotenv.config();
 import { testRouter } from "./routes/testRoute.js";
 import registerRouter from "./routes/authRoute.js";
-import isAuthenticated from "./middleware/isAuth.js";
+// import isAuthenticated from "./middleware/isAuth.js";
 import { log } from "console";
+
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.json({ message: "Plant the Tree! " });
@@ -32,5 +33,5 @@ app.listen(5100, () => {
   console.log(`Server started at http://localhost:5100`);
 });
 
-app.use(isAuthenticated);
+// app.use(isAuthenticated);
 log("hii")

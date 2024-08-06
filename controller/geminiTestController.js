@@ -27,7 +27,7 @@ const getChatbotResponse = async (req, res) => {
       "Gemini Test Controller :: getChatbotResponse :: error",
       error
     );
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ error ,  message: "Internal server error" });
   }
 };
 
