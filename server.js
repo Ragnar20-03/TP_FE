@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { testRouter } from "./routes/testRoute.js";
-// import userRouter from './routes/userRoute.js'
+import userRouter from './routes/userRoute.js'
 import registerRouter from "./routes/authRoute.js";
 // import isAuthenticated from "./middleware/isAuth.js";
 
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 // app.use(isAuthenticated);
 
-// app.use('/user' , userRouter)
+app.use('/user' , userRouter)
 app.use("/auth", registerRouter); // register , update ...  
 //!!!TESTING!!!
 app.use("/test", testRouter);
