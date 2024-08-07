@@ -17,8 +17,8 @@ const userController =   async (req , res) => {
             msg : " User Not Found !"
         })
     }
-    const userData = await userDoc.data();
-    res.status(200).json({
+    const userData =  userDoc.data();
+    return res.status(200).json({
         status : "success" , 
         user : userData
     })
