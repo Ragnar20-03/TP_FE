@@ -6,9 +6,10 @@ dotenv.config();
 import { testRouter } from "./routes/testRoute.js";
 import registerRouter from "./routes/authRoute.js";
 // import isAuthenticated from "./middleware/isAuth.js";
-import { log } from "console";
+import userRouter from './routes/userRoute.js'
 
 app.use(bodyParser.json());
+
 
 app.get("/", (req, res) => {
   res.json({ message: "Plant the Tree! " });
@@ -25,14 +26,13 @@ app.use("/auth", registerRouter); // register , update ...
 
 //!!!TESTING!!!
 app.use("/test", testRouter);
-
+app.use('/user' , userRouter)
 
 app.listen(5100, () => {
   console.log(`Server started at http://localhost:5100`);
 });
 
 // app.use(isAuthenticated);
-log("hii")
 
 
 // Pending 
