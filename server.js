@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors'
 const app = express();
 
 import bodyParser from "body-parser";
@@ -10,6 +11,7 @@ import userRouter from './routes/userRoute.js'
 import registerRouter from "./routes/authRoute.js";
 // import isAuthenticated from "./middleware/isAuth.js";
 
+app.use(cors())
 app.use(bodyParser.json());
 
 
