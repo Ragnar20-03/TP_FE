@@ -10,7 +10,7 @@ const isAuthenticated = async (req, res, next) => {
   try {
     const decodedToken = await admin.auth().verifyIdToken(token);
     req.user = decodedToken;
-    console.log(decodedToken);
+    console.log("Decoded token is : " ,decodedToken);
     next();
   } catch (error) {
     console.error("isAuthenticated :: error", error);

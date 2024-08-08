@@ -15,7 +15,7 @@ app.use(cors())
 app.use(bodyParser.json());
 
 
-app.get("/", (req, res) => {
+app.get("/", isAuthenticated ,  (req, res) => {
   res.json({ message: "Plant the Tree! " });
 });
 
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.use('/user' , userRouter)
 app.use("/auth", registerRouter); // register , update ...  
-//!!!TESTING!!!
+//!!!TESTING!!!s
 app.use("/test", testRouter);
 
 
@@ -31,6 +31,8 @@ app.listen(5100, () => {
   console.log(`Server started at http://localhost:5100`);
 });
 
+
+// /auth/register/:role
 
 
 // Pending 

@@ -10,9 +10,10 @@ import {
 
 import path from "path";
 import { uploadFile } from "../services/firebase/storage.js";
+import { log } from "console";
 
 const testAuthController = async (req, res) => {
-  const uid = "PIy7oDU101RD244gn6hJUPHhu19269";
+  const uid = "QRQDLJTfAE0XuSOFAbB7";
 
   try {
     //Check if user exists
