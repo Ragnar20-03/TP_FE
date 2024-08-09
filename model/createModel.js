@@ -102,14 +102,17 @@ const parse = (value, type = null) => {
   // Geopoint
   if (type === "geopoint") {
     if (
-      value &&
-      value.latitude &&
-      value.longitude &&
-      !isNaN(value.latitude) &&
-      !isNaN(value.longitude)
+      value.hasOwnProperty("latitude") &&
+      value.latitude !== undefined &&
+      value.hasOwnProperty("longitude") &&
+      value.longitude !== undefined
     ) {
       const { latitude, longitude } = value;
-      return new GeoPoint(latitude, longitude);
+
+      return new GeoPoint(
+        Number.parseInt(latitude),
+        Number.parseInt(longitude)
+      );
     }
     return null;
   }

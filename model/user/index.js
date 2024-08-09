@@ -1,5 +1,5 @@
 import { paymentModel } from "./paymentModel.js";
-import { rewardsModel } from "./rewardsModel.js";
+import { rewardModel } from "./rewardModel.js";
 import { userModel } from "./userModel.js";
 
-export { paymentModel, rewardsModel, userModel };
+export { paymentModel, rewardModel, userModel };

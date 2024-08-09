@@ -11,7 +11,7 @@ const ngoModel = {
   postalCode: "number",
   description: "string",
   website: "string",
-  places: "array", //Array of Places under this NGO
+  placeIds: "array", //Array of Places under this NGO
   plantationStats: "array", //Array of Plantation Stats IDs
   //   createdAt: "", // auto added by database
   //   updatedAt: "", // auto added by database

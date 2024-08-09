@@ -57,7 +57,7 @@ const getRef = (refString) => {
 };
 
 //CREATE: Add Entry to Collection
-const addDoc = async (collectionPath, data) => {
+const addDoc = async (collectionPath, data, docId = null) => {
   if (
     !collectionPath ||
     typeof collectionPath !== "string" ||
@@ -67,10 +67,18 @@ const addDoc = async (collectionPath, data) => {
   }
   try {
     //Get Collection Reference
-    const collectionRef = getRef(collectionPath);
+    let collectionRef = getRef(collectionPath);
 
     //Add Data to Collection
-    return await collectionRef.add(data);
+    //If Document ID is provided, set data to that document
+    if (docId !== null) {
+      collectionRef = collectionRef.doc(docId);
+      await collectionRef.set(data);
+      return docId;
+    } else {
+      const response = await collectionRef.add(data);
+      return response.id;
+    }
   } catch (error) {
     console.error("Firestore Services :: addData :: error", error);
     throw error;
@@ -78,6 +86,35 @@ const addDoc = async (collectionPath, data) => {
 };
 
 //READ: Get Entry from Collection
+const getDoc = async (documentPath) => {
+  try {
+    if (
+      !documentPath ||
+      typeof documentPath !== "string" ||
+      !isDocRefString(documentPath)
+    ) {
+      throw new Error("Invalid Document Path");
+    }
+    //Get Document Reference
+    const documentRef = getRef(documentPath);
+
+    //Get Data
+    const doc = await documentRef.get();
+    if (!doc.exists) {
+      return null;
+    }
+    return {
+      id: doc.id,
+      createTime: doc.createTime,
+      updateTime: doc.updateTime,
+      ...doc.data(),
+    };
+  } catch (error) {
+    console.error("Firestore Services :: getData :: error", error);
+    throw error;
+  }
+};
+
 const getDocs = async (
   collectionPath,
   query = [],
@@ -239,6 +276,7 @@ const deleteFields = async (documentPath, fields) => {
 export {
   getRef,
   addDoc,
+  getDoc,
   getDocs,
   updateDoc,
   patchDoc,

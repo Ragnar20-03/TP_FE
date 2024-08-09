@@ -1,4 +1,5 @@
 const placeModel = {
+  name: "string",
   address: "string",
   description: "string",
   coordinates: "geopoint", //(Lat, Long)

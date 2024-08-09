@@ -10,10 +10,10 @@ import {
 
 import path from "path";
 import { uploadFile } from "../services/firebase/storage.js";
-import { log } from "console";
+import { getHistoricalWeatherData } from "../services/openmeteo/historicalData.js";
 
 const testAuthController = async (req, res) => {
-  const uid = "QRQDLJTfAE0XuSOFAbB7";
+  const uid = "PIy7oDU101RD244gn6hJUPHhu192";
 
   try {
     //Check if user exists
@@ -57,6 +57,7 @@ const testAuthController = async (req, res) => {
     return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
 const addDocController = async (req, res) => {
   try {
     const { collectionPath, data } = req.body;
@@ -188,23 +189,20 @@ const uploadFilesContoller = async (req, res) => {
   }
 };
 
-const chatbotController = async (req, res) => {
-  try {
-    const { prompt } = req.body;
-  } catch (error) {
-    console.error("chatbotController :: error", error);
-    res.status(500).send({ error: error.message });
-  }
+//OPEN METEO
+const historicalWeatherDataController = async (req, res) => {
+  await getHistoricalWeatherData();
+  res.status(200).send({ message: "Weather data fetched successfully" });
 };
 
 export {
   addDocController,
   getDocsController,
-  updateDocController, 
+  updateDocController,
   patchDocController,
   deleteDocController,
   deleteFieldsController,
   testAuthController,
-  chatbotController,
   uploadFilesContoller,
+  historicalWeatherDataController,
 };

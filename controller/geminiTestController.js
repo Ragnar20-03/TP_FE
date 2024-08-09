@@ -1,7 +1,7 @@
 import { startChatInstance, sendMessage } from "../services/gemini/chatbot.js";
 import { v4 as uuidv4 } from "uuid";
-// import NodeCache from "node-cache";
-// const cache = new NodeCache({ stdTTL: 10 * 60 }); // 10 minutes
+import NodeCache from "node-cache";
+const cache = new NodeCache({ stdTTL: 10 * 60 }); // 10 minutes
 const getChatbotResponse = async (req, res) => {
   const { chatId, prompt } = req.body;
   if (!prompt) {
@@ -10,16 +10,16 @@ const getChatbotResponse = async (req, res) => {
   try {
     let chatInstance;
     let newChatId = chatId;
-    // if (chatId) {
-    //   chatInstance = cache.get(chatId);
-    // }
+    if (chatId) {
+      chatInstance = cache.get(chatId);
+    }
     if (!chatInstance) {
       newChatId = uuidv4();
       chatInstance = startChatInstance();
     }
     const response = await sendMessage(chatInstance, prompt);
     console.log("Chat", chatInstance.params.history);
-    // cache.set(newChatId, chatInstance);
+    cache.set(newChatId, chatInstance);
     // res.status(200).json({ newChatId, response });
     res.status(200).json({ newChatId, response: chatInstance.params.history });
   } catch (error) {
