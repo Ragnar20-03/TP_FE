@@ -1,4 +1,4 @@
-import { addPlaceToNGO } from "../../services/ngo/addPlaceToNGO";
+import { addPlaceToNGO } from "../../services/ngo/addPlaceToNGO.js";
 
 export const addPlaceToNGOController = async (req, res) => {
   try {
