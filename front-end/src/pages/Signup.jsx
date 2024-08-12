@@ -1,69 +1,82 @@
-import React from "react";
-
-function Signup() {
-  return <div>
-    /**
+/**
  * v0 by Vercel.
- * @see https://v0.dev/t/gUPn5HSP0mG
+ * @see https://v0.dev/t/zX41EHGpfMu
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { Button } from "@/components/ui/button"
 
 export default function Component() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-muted">
-      <Card className="w-full max-w-md p-6 md:p-8">
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold">Register</CardTitle>
-          <CardDescription>Join our community and help us plant more trees.</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="grid gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="avatar">Avatar</Label>
-              <Input id="avatar" type="file" />
+    <div className="flex flex-col min-h-screen pt-28">
+      {" "}
+      <main className="flex-1 py-12">
+        <div className="container mx-auto max-w-md px-4 border p-5 rounded-md shadow-lg shadow-teal-50">
+          <h1 className="text-3xl font-bold mb-8">Register</h1>
+          <form className="space-y-6">
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="avatar">Avatar</label>
+                <input
+                  id="avatar"
+                  type="file"
+                  className="mt-1 p-2 block w-full border rounded-md"
+                  placeholder="Upload your avatar"
+                />
+              </div>
+              <div>
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  className="mt-1 p-2 block w-full border rounded-md"
+                  placeholder="Enter your name"
+                />
+              </div>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="Enter your name" />
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  className="mt-1 p-2 block w-full border rounded-md"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <div>
+                <label htmlFor="phone">Phone</label>
+                <input
+                  id="phone"
+                  type="tel"
+                  className="mt-1 p-2 block w-full border rounded-md"
+                  placeholder="Enter your phone number"
+                />
+              </div>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="Enter your email" />
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="locality">Locality</label>
+                <input
+                  id="locality"
+                  type="text"
+                  className="mt-1 p-2 block w-full border rounded-md"
+                  placeholder="Enter your locality"
+                />
+              </div>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="phone">Phone</Label>
-              <Input id="phone" type="tel" placeholder="Enter your phone number" />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="role">Role</Label>
-              <Select id="role">
-                <SelectTrigger>
-                  <SelectValue placeholder="Select your role" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="volunteer">Volunteer</SelectItem>
-                  <SelectItem value="organizer">Organizer</SelectItem>
-                  <SelectItem value="sponsor">Sponsor</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+            <button
+              type="submit"
+              className="bg-teal-700 text-white hover:bg-teal-600 w-full p-2 rounded-md"
+            >
+              Register
+            </button>
           </form>
-        </CardContent>
-        <CardFooter>
-          <Button className="w-full" type="submit">
-            Register
-          </Button>
-        </CardFooter>
-      </Card>
+        </div>
+      </main>
+      <footer className="bg-teal-700 text-white py-6 mt-auto">
+        <div className="container mx-auto text-center text-sm">
+          &copy; 2024 Tree Planter. All rights reserved.
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
-  </div>;
-}
-
-export default Signup;

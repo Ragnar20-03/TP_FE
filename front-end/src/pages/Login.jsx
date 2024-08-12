@@ -150,6 +150,11 @@ function Login() {
           </div>
         </div>
       </div>
+      <footer className="bg-teal-700 text-white py-6 mt-auto">
+        <div className="container mx-auto text-center text-sm">
+          &copy; 2024 Tree Planter. All rights reserved.
+        </div>
+      </footer>
     </div>
   );
 }
