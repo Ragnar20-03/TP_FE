@@ -1,7 +1,11 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 
+// user9@gmail.com
+// 123456
 function Login() {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   return (
     <div>
       <div class="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -34,6 +38,9 @@ function Login() {
                     type="email"
                     autocomplete="email"
                     required
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
                     class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="Enter your email address"
                   />
@@ -49,6 +56,9 @@ function Login() {
                 </label>
                 <div class="mt-1">
                   <input
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     id="password"
                     name="password"
                     type="password"
@@ -88,8 +98,11 @@ function Login() {
 
               <div>
                 <button
-                  onClick={() => {}}
-                  type="submit"
+                  onClick={() => {
+                    console.log("email is : ", email);
+                    console.log("password is : ", password);
+                  }}
+                  type="btn"
                   class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-700 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   Sign in
