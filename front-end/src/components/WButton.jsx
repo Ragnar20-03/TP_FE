@@ -1,14 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function WButton({children }) {
+function WButton({ children, onClick = () => {} }) {
   return (
-        <button 
-                className={`btn-sm  bg-white text-gray-800 shadow hover:bg-gray-50 px-3 py-2 rounded `}
-                href="/signin"
-              >
-                { children}
-        </button>
-  )
+    <button
+      onClick={onClick}
+      className={`btn-sm  bg-white text-gray-800 shadow  px-3 py-2 rounded hover:bg-teal-50 `}
+      href="/signin"
+    >
+      {children}
+    </button>
+  );
 }
 
-export default WButton
+export default WButton;
