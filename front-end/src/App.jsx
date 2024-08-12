@@ -5,8 +5,8 @@ import Landing from "./pages/Landing.jsx";
 import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Dashboard from "./pages/Dashboard.jsx";
 import Plantation from "./pages/Plantation.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 function App() {
   return (
