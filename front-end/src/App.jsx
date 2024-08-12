@@ -3,11 +3,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { Outlet } from 'react-router-dom';
+import Nav from './components/Nav';
+import Profile from './pages/Profile';
+import Demo from './components/Demo';
 
 function App() {
   return (
     <div>
-      FrontEnd
+      <Nav />
+      <Profile />
+      <Demo/>
       <BrowserRouter>
         <Routes>
           {/* Login route with nested route */}
