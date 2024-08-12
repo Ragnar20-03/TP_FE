@@ -5,6 +5,7 @@ import Landing from "./pages/Landing.jsx";
 import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import { Plantation } from "./pages/Plantation.jsx";
 
 function App() {
   useEffect(() => {
