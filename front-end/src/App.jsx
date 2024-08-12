@@ -5,7 +5,6 @@ import Landing from "./pages/Landing.jsx";
 import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Profile from "./pages/Profile.jsx";
 
 function App() {
   useEffect(() => {
@@ -22,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/plantation" element={<Plantation />} />
           <Route path="/" element={<Landing />} />
         </Routes>
       </BrowserRouter>
