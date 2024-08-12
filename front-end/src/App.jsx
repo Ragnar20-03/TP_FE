@@ -6,7 +6,7 @@ import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile.jsx";
-
+import Dashboard from "./pages/Dashboard.jsx";
 function App() {
   useEffect(() => {
     axios.get("https://jsonplaceholder.org/users").then((res) => {
@@ -23,6 +23,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/test" element={<Dashboard />} />
+
           <Route path="/" element={<Landing />} />
         </Routes>
       </BrowserRouter>
