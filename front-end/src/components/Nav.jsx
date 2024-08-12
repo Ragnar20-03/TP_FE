@@ -38,6 +38,14 @@ function Nav() {
             >
               Dashboard
             </WButton>
+            <BButton
+              onClick={() => {
+                navigate("/plant-tree");
+                window.location.reload();
+              }}
+            >
+              Plant Tree
+            </BButton>
             <WButton
               onClick={() => {
                 navigate("/news");
@@ -46,6 +54,7 @@ function Nav() {
             >
               News
             </WButton>
+
             <WButton
               onClick={() => {
                 navigate("/plantation");

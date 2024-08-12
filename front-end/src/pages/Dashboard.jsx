@@ -30,7 +30,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "../components/ui/avatar";
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col h-screen pt-24 mt-36">
+    <div className="flex flex-col h-screen pt-24 mt-24 ">
       <main className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 md:p-6">
         <Card className="col-span-1 md:col-span-2 lg:col-span-1">
           <CardHeader className="flex flex-row items-center gap-4">
@@ -40,7 +40,7 @@ export default function Dashboard() {
             </Avatar>
             <div className="grid gap-1">
               <CardTitle className="text-[#4caf50]">John Doe</CardTitle>
-              <CardDescription className="text-[#757575]">
+              <CardDescription className="ext-[#000000]">
                 @johndoe
               </CardDescription>
             </div>
@@ -48,23 +48,23 @@ export default function Dashboard() {
           <CardContent className="grid grid-cols-2 gap-4">
             <div className="grid gap-2">
               <div className="text-2xl font-bold text-[#4caf50]">1,234</div>
-              <div className="text-sm text-[#757575]">Trees Planted</div>
+              <div className="text-sm text-[#000000]">Trees Planted</div>
             </div>
             <div className="grid gap-2">
               <div className="text-2xl font-bold text-[#4caf50]">3rd</div>
-              <div className="text-sm text-[#757575]">Rank</div>
+              <div className="text-sm ext-[#000000]">Rank</div>
             </div>
             <div className="grid gap-2">
               <div className="text-2xl font-bold text-[#4caf50]">12</div>
-              <div className="text-sm text-[#757575]">Badges</div>
+              <div className="text-sm ext-[#000000]">Badges</div>
             </div>
             <div className="grid gap-2">
               <div className="text-2xl font-bold text-[#4caf50]">5</div>
-              <div className="text-sm text-[#757575]">Milestones</div>
+              <div className="text-sm ext-[#000000]">Milestones</div>
             </div>
           </CardContent>
           <CardFooter className="grid gap-2">
-            <div className="text-sm text-[#757575]">
+            <div className="text-sm ext-[#000000]">
               Personalized Tip: Plant trees native to your region for better
               survival rates.
             </div>
@@ -78,7 +78,7 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-4xl font-bold text-[#4caf50]">2,345,678</div>
-            <div className="text-sm text-[#757575]">Total Trees Planted</div>
+            <div className="text-sm ext-[#000000]">Total Trees Planted</div>
           </CardContent>
         </Card>
         <Card className="col-span-1 md:col-span-2 lg:col-span-1">
@@ -91,23 +91,21 @@ export default function Dashboard() {
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <div className="text-2xl font-bold text-[#4caf50]">24°C</div>
-                <div className="text-sm text-[#757575]">
-                  Current Temperature
-                </div>
+                <div className="text-sm ext-[#000000]">Current Temperature</div>
               </div>
               <div className="grid gap-2">
                 <div className="text-2xl font-bold text-[#4caf50]">Good</div>
-                <div className="text-sm text-[#757575]">Air Quality Index</div>
+                <div className="text-sm ext-[#000000]">Air Quality Index</div>
               </div>
               <div className="grid gap-2">
                 <div className="text-2xl font-bold text-[#4caf50]">20%</div>
-                <div className="text-sm text-[#757575]">Chance of Rain</div>
+                <div className="text-sm ext-[#000000]">Chance of Rain</div>
               </div>
               <div className="grid gap-2">
                 <div className="text-2xl font-bold text-[#4caf50]">
                   Light Wind
                 </div>
-                <div className="text-sm text-[#757575]">Wind Conditions</div>
+                <div className="text-sm ext-[#000000]">Wind Conditions</div>
               </div>
             </div>
           </CardContent>
@@ -141,7 +139,7 @@ export default function Dashboard() {
                   <div className="font-medium text-[#4caf50]">
                     Tree Planting Assistant
                   </div>
-                  <div className="text-sm text-[#757575]">
+                  <div className="text-sm ext-[#000000]">
                     I'm here to guide you through the tree planting process.
                   </div>
                 </div>
@@ -157,9 +155,9 @@ export default function Dashboard() {
                       <div className="font-semibold text-[#4caf50]">
                         Tree Planting Assistant
                       </div>
-                      <div className="text-xs text-[#757575]">Just now</div>
+                      <div className="text-xs ext-[#000000]">Just now</div>
                     </div>
-                    <div className="text-[#757575]">
+                    <div className="ext-[#000000]">
                       Hello! I'm here to help you with the tree planting
                       process. What questions do you have?
                     </div>
@@ -173,9 +171,9 @@ export default function Dashboard() {
                   <div className="grid gap-1.5">
                     <div className="flex items-center gap-2">
                       <div className="font-semibold text-[#4caf50]">You</div>
-                      <div className="text-xs text-[#757575]">Just now</div>
+                      <div className="text-xs ext-[#000000]">Just now</div>
                     </div>
-                    <div className="text-[#757575]">
+                    <div className="ext-[#000000]">
                       What are the best practices for planting trees?
                     </div>
                   </div>
@@ -190,9 +188,9 @@ export default function Dashboard() {
                       <div className="font-semibold text-[#4caf50]">
                         Tree Planting Assistant
                       </div>
-                      <div className="text-xs text-[#757575]">Just now</div>
+                      <div className="text-xs ext-[#000000]">Just now</div>
                     </div>
-                    <div className="text-[#757575]">
+                    <div className="ext-[#000000]">
                       Great question! Here are some best practices for planting
                       trees:
                       <ul className="list-disc list-inside mt-2">
@@ -230,9 +228,9 @@ export default function Dashboard() {
                   <div className="grid gap-1.5">
                     <div className="flex items-center gap-2">
                       <div className="font-semibold text-[#4caf50]">You</div>
-                      <div className="text-xs text-[#757575]">Just now</div>
+                      <div className="text-xs ext-[#000000]">Just now</div>
                     </div>
-                    <div className="text-[#757575]">
+                    <div className="ext-[#000000]">
                       That's really helpful, thank you! Do you have any tips on
                       how to care for the tree after it's planted?
                     </div>
@@ -248,9 +246,9 @@ export default function Dashboard() {
                       <div className="font-semibold text-[#4caf50]">
                         Tree Planting Assistant
                       </div>
-                      <div className="text-xs text-[#757575]">Just now</div>
+                      <div className="text-xs ext-[#000000]">Just now</div>
                     </div>
-                    <div className="text-[#757575]">
+                    <div className="ext-[#000000]">
                       Absolutely, here are some tips for caring for your newly
                       planted tree:
                       <ul className="list-disc list-inside mt-2">
