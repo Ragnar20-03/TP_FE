@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
-import Landing from "./pages/Landing/Landing.jsx";
+import Landing from "./pages/Landing.jsx";
 import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile.jsx";
 
 function App() {
   useEffect(() => {
@@ -14,8 +15,6 @@ function App() {
   });
   return (
     <div>
-      <Nav />
-      <Landing />
       <BrowserRouter>
         <Nav />
       </BrowserRouter>
@@ -23,6 +22,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<Landing />} />
         </Routes>
       </BrowserRouter>
     </div>

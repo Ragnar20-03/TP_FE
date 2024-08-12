@@ -1,16 +1,15 @@
-import React from 'react'
+import React from "react";
 
-function BButton({children, onClick = () => {
-
-} }) {
+function BButton({ children, onClick = () => {} }) {
   return (
-        <button 
-                className={`btn-sm  bg-teal-700 text-white shadow hover:bg-teal-600 px-3 py-2 rounded `}
-                href="/signin"
-              >
-                { children}
-        </button>
-  )
+    <button
+      onClick={onClick}
+      className={`btn-sm  bg-green-600 text-white shadow hover:bg-green-700 px-3 py-2 rounded `}
+      href="/signin"
+    >
+      {children}
+    </button>
+  );
 }
 
-export default BButton
+export default BButton;

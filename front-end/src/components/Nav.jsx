@@ -16,14 +16,44 @@ function Nav() {
                 {/* SVG Paths */}
               </svg>
             </a>
-            <span className="text-white mx-4 bg-teal-700 rounded-md p-2">
+            <span className="text-white mx-4 bg-green-600 rounded-md p-2">
               Go Green
             </span>
           </div>
           <div className="flex justify-center gap-2">
-            <WButton>Home</WButton>
-            <WButton>About</WButton>
-            <WButton>Profile</WButton>
+            <WButton
+              onClick={() => {
+                navigate("/");
+                window.location.reload();
+              }}
+            >
+              Home
+            </WButton>
+
+            <WButton
+              onClick={() => {
+                navigate("/profile");
+                window.location.reload();
+              }}
+            >
+              Profile
+            </WButton>
+            <WButton
+              onClick={() => {
+                navigate("/about");
+                window.location.reload();
+              }}
+            >
+              News
+            </WButton>
+            <WButton
+              onClick={() => {
+                navigate("/about");
+                window.location.reload();
+              }}
+            >
+              Plantation
+            </WButton>
           </div>
           <ul className="flex flex-1 items-center justify-end gap-3">
             {localStorage.getItem("token") ? (
@@ -42,7 +72,7 @@ function Nav() {
                 <li>
                   <WButton
                     onClick={() => {
-                      localStorage.setItem("token", "roshan");
+                      navigate("/login");
                       window.location.reload();
                     }}
                   >
@@ -50,7 +80,14 @@ function Nav() {
                   </WButton>
                 </li>
                 <li>
-                  <BButton>Register</BButton>
+                  <BButton
+                    onClick={() => {
+                      navigate("/signup");
+                      window.location.reload();
+                    }}
+                  >
+                    Register
+                  </BButton>
                 </li>
               </div>
             )}
