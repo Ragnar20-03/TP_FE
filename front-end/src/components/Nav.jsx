@@ -32,15 +32,15 @@ function Nav() {
 
             <WButton
               onClick={() => {
-                navigate("/profile");
+                navigate("/dashboard");
                 window.location.reload();
               }}
             >
-              Profile
+              Dashboard
             </WButton>
             <WButton
               onClick={() => {
-                navigate("/about");
+                navigate("/news");
                 window.location.reload();
               }}
             >
@@ -48,7 +48,7 @@ function Nav() {
             </WButton>
             <WButton
               onClick={() => {
-                navigate("/about");
+                navigate("/plantation");
                 window.location.reload();
               }}
             >

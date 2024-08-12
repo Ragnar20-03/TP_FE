@@ -5,14 +5,10 @@ import Landing from "./pages/Landing.jsx";
 import axios from "axios";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import { Plantation } from "./pages/Plantation.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
+import Plantation from "./pages/Plantation.jsx";
 
 function App() {
-  useEffect(() => {
-    axios.get("https://jsonplaceholder.org/users").then((res) => {
-      console.log("resposne is : ", res);
-    });
-  });
   return (
     <div>
       <BrowserRouter>
@@ -23,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/plantation" element={<Plantation />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/" element={<Landing />} />
         </Routes>
       </BrowserRouter>
