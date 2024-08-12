@@ -1,4 +1,7 @@
 import React from "react";
+import Button from "./WButton";
+import WButton from "./WButton";
+import BButton from "./BButton";
 
 function Nav() {
   return (
@@ -25,20 +28,14 @@ function Nav() {
           </div>
           <ul className="flex flex-1 items-center justify-end gap-3">
             <li>
-              <a
-                className="btn-sm bg-white text-gray-800 shadow hover:bg-gray-50 px-3 py-2 rounded "
-                href="/signin"
-              >
+              <WButton>
                 Login
-              </a>
+              </WButton>
             </li>
             <li>
-              <a
-                className="btn-sm bg-gray-800 text-gray-200 shadow hover:bg-gray-900 px-3 py-2 rounded"
-                href="/signup"
-              >
+              <BButton  >
                 Register
-              </a>
+              </BButton>
             </li>
           </ul>
         </div>
