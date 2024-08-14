@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { signIn } from "../services/firebaseAuth";
 
 // user9@gmail.com
 // 123456
@@ -9,8 +10,7 @@ function Login() {
   const [password, setPassword] = useState();
 
   function onLoginhandler() {
-    console.log("Email is : ", email);
-    console.log("password is : ", password);
+    signIn(email, password).then((res) => {});
   }
 
   return (

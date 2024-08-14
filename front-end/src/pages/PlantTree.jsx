@@ -3,9 +3,29 @@ import { Card, CardHeader, CardTitle } from "../components/ui_Plantation/card";
 import { CardContent } from "../components/ui_Plantation/card";
 import BButton from "../components/BButton";
 import { Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function PlantTree() {
   const [locations, setLocations] = useState();
+
+  useEffect(() => {
+    axios
+      .get("https://tree-plantation-delta.vercel.app/common/getNearbyPlaces", {
+        params: {
+          lat: 19.9975,
+          ion: 73.7898,
+          state: "maharashtra",
+          country: "india",
+          radius: 100,
+        },
+      })
+      .then((res) => {
+        console.log("GetNearbyPlaces Response is : ", res);
+      })
+      .catch((err) => {
+        console.log("error is : ", err);
+      });
+  }, []);
 
   useEffect(() => {
     console.log("Hii inside Plant Tree");

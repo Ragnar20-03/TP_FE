@@ -10,6 +10,13 @@ import Dashboard from "./pages/Dashboard.jsx";
 import PlantTree from "./pages/PlantTree.jsx";
 
 function App() {
+  useEffect(() => {
+    axios
+      .get("https://tree-plantation-delta.vercel.app/user/getUser")
+      .then((res) => {
+        console.log(res);
+      });
+  }, []);
   return (
     <div className="flex flex-col">
       <div>

@@ -11,20 +11,31 @@ import {
   CardContent,
 } from "../components/ui_Plantation/card";
 import BButton from "../components/BButton";
+import axios from "axios";
 
 export default function Plantation() {
   let demo = false;
-  const [plantations, setPlantations] = useState([{}]);
-
-  useEffect(() => {}, []);
+  const [plantations, setPlantations] = useState();
+  useEffect(() => {
+    axios
+      .get("https://tree-plantation-delta.vercel.app/common/getNearbyPlaces")
+      .then((res) => {
+        console.log("response from GetPlantaion., ", res);
+        setPlantations(res.data.data);
+      })
+      .catch((err) => {
+        console.log("Error from GetPlantaion., ", err);
+      });
+  }, []);
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-6 mt-28">
       <h1 className="text-2xl font-bold mb-6">My Plantations</h1>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>Rainforest Restoration</CardTitle>
+            <CardTitle> {} HIi </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-4">

@@ -10,8 +10,8 @@ import axios from "axios";
 axios.interceptors.request.use(
   (config) => {
     // Retrieve the token from localStorage (or any other storage)
-    const token = "Your token is here";
-
+    const token = localStorage.getItem("idToken");
+    console.log("token is : ", token);
     // If the token exists, add it to the Authorization header
     if (token) {
       config.headers["Authorization"] = `Bearer ${token}`;

@@ -1,10 +1,11 @@
-import firebase from "firebase/app";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  apiKey: "AIzaSyBpAREMfAHo5eM_OBD9vw94te4IpV15FuA",
+  authDomain: "treeplantation-3dc6f.firebaseapp.com",
 };
 
 // Initialize Firebase
-export const app = firebase.initializeApp(firebaseConfig);
-export const auth = app.auth();
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);

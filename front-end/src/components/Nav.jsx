@@ -65,11 +65,11 @@ function Nav() {
             </WButton>
           </div>
           <ul className="flex flex-1 items-center justify-end gap-3">
-            {localStorage.getItem("token") ? (
+            {localStorage.getItem("idToken") ? (
               <li>
                 <WButton
                   onClick={() => {
-                    localStorage.removeItem("token");
+                    localStorage.removeItem("idToken");
                     navigate("/login"); // Navigate to the home page or another route after logout
                   }}
                 >
